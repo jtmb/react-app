@@ -1,15 +1,14 @@
-ARG ALPINE_VERSION=3.18
-
 # Stage 1: Build React App
 FROM node:16-alpine AS build
 WORKDIR /app
-COPY react-app/package.json react-app/package-lock.json ./
-RUN npm install
-COPY react-app ./
+COPY /react-app ./react-app
+RUN cd react-app && \
+    npm install && \
+    npm run build
 
 # Stage 2: Serve React App
 FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/react-app/dist /usr/share/nginx/html
 COPY config/nginx.conf /etc/nginx/nginx.conf
 COPY config/conf.d /etc/nginx/conf.d/
 
