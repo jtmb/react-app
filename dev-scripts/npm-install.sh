@@ -2,8 +2,9 @@
 # Debian Script for installing and validating NODEJS/NPM
 
 sudo apt update # Update packages
-sudo apt install nodejs npm -y  # Install the required packages
-
+apt-get remove libnode-dev
+curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
 # Check if Node.js is installed and get its version
 node_version=$(node -v)
 
