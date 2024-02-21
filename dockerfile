@@ -18,7 +18,7 @@ RUN apk add --no-cache supervisor
 # Copy Supervisor configuration
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expose port 80
+# Expose port 8080
 EXPOSE 8080
 
 # Start Supervisor to manage services
