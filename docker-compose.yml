@@ -6,8 +6,6 @@ services:
       context: .
     environment:
       TZ: America/Toronto
-      DASHBOARD_USER: admin
-      DASHBOARD_PASSWORD: changeme
       MYSQL_DATABASE: db
       MYSQL_USER: user
       MYSQL_PASSWORD: "password"
